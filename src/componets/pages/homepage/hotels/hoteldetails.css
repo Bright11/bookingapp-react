@@ -5,6 +5,7 @@
 .detailsflex{
 	display: flex;
 	justify-content: center;
+	
 }
 .details-sidebar{
 	flex-basis: 30%;
@@ -84,4 +85,27 @@
 .detailsloginli a{
 	color: white;
 	text-decoration: none;
+}
+
+.alreadbooked{
+	margin-top: 8px;
+	background-color: var(--gold-color);
+	cursor: pointer;
+}
+
+.showmap{
+	background: var(--nav-color);
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 8px;
+	cursor: pointer;
+	border: 0;
+	color: white;
+	font-size: 13px;
+	font-weight: 500;
+	
+}
+
+.mapdiv{
+	margin: 10px 8%;
 }

@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import Searchform from './Searchform';
 import "./searchform.css";
 import Destination from '../../Destination';
+import CompanyInfo from './hotels/CompanyInfo';
 function Home() {
   return (
     <div className="homepage">
@@ -21,7 +22,13 @@ function Home() {
       <div className="forms">
         <Searchform />
       </div>
-      <Destination />
+      <div>
+        <Destination />
+      </div>
+      <hr className='divider' />
+      <div>
+        <CompanyInfo/>
+      </div>
     </div>
   );
 }

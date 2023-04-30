@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../../../firebase";
@@ -13,7 +13,7 @@ function Editecountry() {
   const [name, setName] = useState("");
   const { editcountry } = useParams();
 
-  //
+  const navigate = useNavigate()
 
   const getcountry = async () => {
     try {
@@ -71,6 +71,9 @@ function Editecountry() {
     );
   };
   // the end
+  const noimage = () => {
+    setHandlebtn(true)
+  }
   const handedite = async (e) => {
     e.preventDefault();
     try {
@@ -81,6 +84,7 @@ function Editecountry() {
       })
       .then((response) => {
         setEdit("edtited");
+        navigate("/createcountry");
       });
 	} catch (e) {
 		console.log(e)
@@ -109,11 +113,17 @@ function Editecountry() {
         ) : null}
       </form>
       {handlebtn ? null : (
-        <div>
-          <button onClick={uploadts} className="uploadimage">
-            Upload
-          </button>
-        </div>
+        <>
+          <div>
+            <button onClick={uploadts} className="uploadimage">
+              Upload
+            </button>
+          </div>
+          <div>
+            <button onClick={noimage} className="uploadimage">
+No Image            </button>
+          </div>
+        </>
       )}
     </div>
   );

@@ -3,7 +3,10 @@
 	margin-top: 40px;
 	display: flex;
 	flex-direction: column;
+	background: white;
+	padding: 10px;
 }
+
 .hotel{
 	display: flex;
 	align-items: center;
@@ -47,4 +50,16 @@
 	font-size: 15px;
 	font-weight: 600;
 	
+}
+.hoteltopdescript div{
+	background: var(--nav-color);
+	padding: 10px 8px 8px 8px;
+	border-radius: 6px;
+}
+
+.hoteltopdescript div a{
+	color: white;
+	text-align: center;
+	font-size: 12px;
+	font-weight: 600;
 }

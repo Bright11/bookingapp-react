@@ -8,7 +8,7 @@ function ViewCountries() {
 	const [country, setCountry]= useState([])
 	const fetchcountries = async () => {
     const response = await axios
-      .get(`${url}/property/getcats`)
+      .get(`${url}/property/admingetcats`)
       .then((response) => {
         setCountry(response.data);
       });

@@ -1,0 +1,32 @@
+.companyInfo{
+	width: 85vw;
+	margin: 30px 6%;
+}
+.companyInfo-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.companyInfo-details{
+	display: flex;
+	flex-direction: column;
+	max-width: 250px;
+	background: #FDFDFD;
+	height: 150px;
+	padding: 10px;
+	margin: 0px 1px 10px 1px;
+}
+.companyInfo-details h1{
+	font-size: 16px;
+	color: darkseagreen;
+	margin: 0;
+}
+.companyInfo-details>hr{
+	margin: 6px 0px;
+}
+.companyInfo-details p{
+	font-size: 13px;
+	font-weight: 600;
+}

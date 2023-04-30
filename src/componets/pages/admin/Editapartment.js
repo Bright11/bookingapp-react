@@ -17,7 +17,11 @@ function Editapartment() {
   const [message, setMessage] = useState("");
 	const [handlebtn,setHandlebtn]= useState(null)
   const navigate = useNavigate();
-  const { apartmentid } = useParams();
+	const { apartmentid } = useParams();
+	const [country, setCountry] = useState([]);
+	const [countryid, setCountryid] = useState("");
+	const [getcountryname, setGetcountryname] = useState("");
+	
   const uploadts = () => {
     // upload imag
     const storageRef = ref(storage, `images/${image.name}`);
@@ -58,25 +62,30 @@ function Editapartment() {
     e.preventDefault();
 
     console.log("pass");
-    try {
-      const response = axios
-        .post(`${url}/property/editproperty/${apartmentid}`, {
-          name,
-          roomnumber,
-          bednumber,
-          description,
-          price,
-          image,
-        })
-        .then((response) => {
-			navigate("/apartment");
-          setMessage(response.data);
-        });
+	  try {
+		  if (countryid) {
+        const response = axios
+          .post(`${url}/property/editproperty/${apartmentid}`, {
+            name,
+            roomnumber,
+            bednumber,
+            description,
+            price,
+            image,
+            countryid,
+          })
+          .then((response) => {
+            navigate("/apartment");
+            setMessage(response.data);
+          });
+      }
     } catch (error) {
       console.log(error);
     }
   };
-
+const noimage = () => {
+  setHandlebtn(true);
+};
   //   getting apartment by ids
   const editapartment = async () => {
     await axios
@@ -86,13 +95,23 @@ function Editapartment() {
         setBednumber(response.data.bednumber);
         setRoomnumber(response.data.roomnumber);
         setDescription(response.data.description);
-        setPrice(response.data.price);
+		  setPrice(response.data.price);
+		  
+		  setGetcountryname(response.data.countryid.name);
+
       });
   };
   useEffect(() => {
-    editapartment();
+	  editapartment();
+	  fetchcountries();
   }, []);
-
+ 	const fetchcountries = async () => {
+    const response = await axios
+      .get(`${url}/property/admingetcats`)
+      .then((response) => {
+        setCountry(response.data);
+      });
+  };
   return (
     <div classsNmae="" className="register">
       <Link to="/apartment">View Apartment</Link>
@@ -106,7 +125,14 @@ function Editapartment() {
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-
+        <div>
+          <select onChange={(e) => setCountryid(e.target.value)}>
+           
+            {country.map((c) => (
+              <option value={c._id}>{c.name}</option>
+            ))}
+          </select>
+        </div>
         <div>
           <input
             type="number"
@@ -147,11 +173,18 @@ function Editapartment() {
         ) : null}
       </form>
       {handlebtn ? null : (
-        <div>
-          <button onClick={uploadts} className="registerbtn">
-            Upload
-          </button>
-        </div>
+        <>
+          <div>
+            <button onClick={uploadts} className="uploadimage">
+              Upload
+            </button>
+          </div>
+          <div>
+            <button onClick={noimage} className="uploadimage">
+              No Image
+            </button>
+          </div>
+        </>
       )}
     </div>
   );

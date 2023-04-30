@@ -27,15 +27,18 @@ function Hotels() {
             <Link to={`/details/${h._id}`}>{h.name}</Link>
             <div className="hoteltopdescript">
               <p>
-                
                 {h.description.length > 200
                   ? `${h.description.substring(0, 200)}...`
                   : h.description}
               </p>
+              <div>
+                <Link to={`/details/${h._id}`}>View Hotel</Link>
+              </div>
             </div>
           </div>
         ))}
       </div>
+      
     </div>
   );
 }

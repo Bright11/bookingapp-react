@@ -11,9 +11,13 @@ const[name, setName] = useState("");
 const [price, setPrice] = useState();
 const [roomnumber, setRoomnumber] = useState();
 const [bednumber, setBednumber] = useState();
-const [description, setDescription] = useState("");
+  const [showmap, setShowmap] = useState(null);
+  const [maptext, setMaptext] = useState("Show Map")
+  const [country, setCountry] = useState("")
+  ;
   useEffect(() => {
     getdetails();
+    document.title = name;
   }, [propertydetails]);
   const getdetails = async () => {
     const response = axios
@@ -23,7 +27,9 @@ const [description, setDescription] = useState("");
 		  setName(response.data.name);
 		  setPrice(response.data.price)
 		  setRoomnumber(response.data.roomnumber);
-		  setBednumber(response.data.bednumber)
+        setBednumber(response.data.bednumber)
+        setCountry(response.data.countryid.name);
+        
       });
   };
 	const readytobooked = (p) => {
@@ -37,7 +43,15 @@ const [description, setDescription] = useState("");
 		  
     });
 	};
-	console.log("g",name);
+  const showmaps = () => {
+    if (showmap) {
+      setShowmap(null);
+      setMaptext("Show Map");
+    } else {
+      setShowmap(true);
+        setMaptext("Hide Map");
+  }
+}
   return (
     <div className="hoteldetails">
       <div className="detailsflex">
@@ -51,8 +65,25 @@ const [description, setDescription] = useState("");
             <input type="date" />
             <lable>Number of room</lable>
             <input type="number" value={propertydetails.roomnumber} />
-            <button className="search-details">Search</button>
+            {userid ? (
+              <>
+                {propertydetails.status === "available" ? (
+                  <button onClick={readytobooked}>Reserve</button>
+                ) : (
+                  <button type="button" className="alreadbooked">
+                    Booked alreafy
+                  </button>
+                )}
+              </>
+            ) : (
+              <li className="detailsloginli">
+                <Link to="/login">Login</Link>
+              </li>
+            )}
           </form>
+          <button onClick={showmaps} className="showmap">
+            {maptext}
+          </button>
         </div>
         <div className="details-main-img">
           <div>
@@ -68,6 +99,7 @@ const [description, setDescription] = useState("");
           <div className="location">
             <h1>Quality and affordable</h1>
             <h2>Well organized bed</h2>
+            <h2>{country}</h2>
             {userid ? (
               <>
                 {propertydetails.status === "available" ? (
@@ -84,6 +116,15 @@ const [description, setDescription] = useState("");
           </div>
         </div>
       </div>
+      {showmap ? (
+        <div className="mapdiv">
+          <iframe
+            width="100%"
+            height="400"
+            src={`https://maps.google.com/maps?q=${country}&output=embed`}
+          ></iframe>
+        </div>
+      ) : null}
     </div>
   );
 }

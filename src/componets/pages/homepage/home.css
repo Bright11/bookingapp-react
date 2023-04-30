@@ -1,7 +1,10 @@
 :root {
 	--nav-color: #042D5F;
 }
-
+.divider{
+	width: 80vw;
+	margin: 0px auto;
+}
 .top-background{
 	height: 350px;
 	background-repeat: no-repeat;
