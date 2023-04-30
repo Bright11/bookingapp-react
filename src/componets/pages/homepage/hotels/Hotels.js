@@ -9,7 +9,7 @@ function Hotels() {
   const [hotels, setHotels] = useState([]);
   useEffect(() => {
     gethotels();
-  }, []);
+  }, [hotels]);
   const gethotels = async () => {
     const response = await axios
       .get(`${url}/property/hotels`)
