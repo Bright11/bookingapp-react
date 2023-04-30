@@ -1,0 +1,55 @@
+
+.destination{
+	margin: 30px 6%;
+}
+.destination h1{
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.destination p{
+	font-size: 12px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+.destination .months{
+	display: flex;
+	gap: 10px;
+	padding: 10px;
+	align-items: center;
+	margin-top: 30px;
+}
+.months button{
+	font-size: 14px;
+	font-weight: 600;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	border-radius: 16px;
+}
+.months button:hover{
+	background: rgb(221, 216, 216);
+}
+.months .monthactive{
+	background: var(--nav-color);
+	color: white;
+}
+.months .monthactive:hover{
+	background: var(--nav-color);
+}
+.offers-images{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+}
+.offers-images div{
+	width: 50%;
+	height: 250px;
+	border-radius: 6px;
+	background-position:center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color:var(--nav-color);
+	background-blend-mode: hard-light;
+}

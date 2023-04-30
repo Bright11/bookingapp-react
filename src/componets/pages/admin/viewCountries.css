@@ -1,0 +1,32 @@
+.viewCountries{
+	max-width: 80vw;
+	margin-top: 30px;
+}
+
+.viewCountries div{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.view-content div h1{
+	font-size: 13px;
+	font-weight: 500;
+}
+.view-content div{
+	background: var(--div-color);
+	padding: 10px;
+	border-radius: 6px;
+}
+
+.editlink a{
+	color: black;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.editlink a:hover {
+	color: rgb(194, 86, 104);
+	
+}

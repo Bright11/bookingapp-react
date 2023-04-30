@@ -1,0 +1,18 @@
+.vewApartment{
+	max-width: 80vw;
+	margin: 40px auto;
+}
+.vewapartment_info{
+	display: flex;
+	align-items: center;
+	gap:10px
+}
+.vewapartment_mapdiv{
+	margin-bottom: 10px;
+}
+.apartmenteditlink{
+	background: var(--div-color);
+	border-radius: 6px;
+	padding: 8px;
+	
+}

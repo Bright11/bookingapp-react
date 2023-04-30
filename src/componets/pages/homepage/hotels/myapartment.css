@@ -1,0 +1,17 @@
+
+.myapartment{
+	width: 80vw;
+	margin: 30px auto;
+}
+
+.apartment{
+	display: flex;
+}
+
+.img-left{
+	flex-basis: 20%;
+}
+
+.info-right{
+	flex-basis: 30%;
+}

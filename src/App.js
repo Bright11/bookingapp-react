@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react'
+import Navbar from './componets/nav/Navbar';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Home from './componets/pages/homepage/Home';
+import Register from './componets/pages/homepage/Register';
+import Login from "./componets/pages/homepage/Login";
+import { useCookies } from 'react-cookie';
+import Country from './componets/pages/admin/Country';
+import Newapartment from './componets/pages/admin/Newapartment';
+import Hoteldetails from './componets/pages/homepage/hotels/Hoteldetails';
+import Myapartment from './componets/pages/homepage/hotels/Myapartment';
+import Editecountry from './componets/pages/admin/Editecountry';
+import ViewApartment from './componets/pages/admin/ViewApartment';
+import Editapartment from './componets/pages/admin/Editapartment';
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
+  const userid = cookies.id;
+  const admin = cookies.admin;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar userid={userid} admin={admin} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        {admin === "1" ? (
+          <>
+            <Route path="createcountry" element={<Country />} />
+            <Route path="editcountry/:editcountry" element={<Editecountry />} />
+            <Route path="new" element={<Newapartment />} />
+            <Route path="apartment" element={<ViewApartment />} />
+            <Route path='apartmentid/:apartmentid' element={<Editapartment/>}/>
+          </>
+        ) : null}
+        <Route
+          path="details/:details"
+          element={<Hoteldetails userid={userid} />}
+        />
+        <Route path="myapartment" element={<Myapartment />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App

@@ -1,0 +1,34 @@
+.countries{
+	display: flex;
+	flex-direction: column;
+}
+
+.countriesimg{
+	display: flex;
+	align-items: center;
+	
+	flex-wrap: wrap;
+}
+.countriesdiv a{
+	color: rgb(87, 84, 84);
+}
+.countriesdiv{
+	margin: 20px 15px 20px 0px;
+	border-radius: 6px;
+}
+.image{
+	width: 250px;
+	height: 150px;
+	margin: 0px 15px 0px 0px;
+	
+}
+.image img{
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+}
+.countriesdiv .name{
+	font-size: 12px;
+	font-weight: 600;
+	margin-top: 6px;
+}

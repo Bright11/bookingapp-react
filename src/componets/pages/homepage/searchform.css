@@ -1,0 +1,50 @@
+
+.searchformpage form{
+	display: flex;
+}
+.searchformpage form div{
+		background: #DFA000;
+		padding: 5px 10px;
+}
+.searchformpage form div input,button{
+	padding: 10px;
+}
+form div button{
+	border: 0;
+	background-color: var(--nav-color);
+	color: white;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+}
+@media (max-width:900px){
+	
+.searchformpage{
+	
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+
+ }
+ .searchformpage form{
+	width: 100%;
+	align-items: center;
+		justify-content: center;
+		display: flex;
+		flex-direction: column;
+ }
+
+  .searchformpage form div{
+	width: 80% !important;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+ }
+ form div input, button{
+	width: 100%;
+	padding: 10px;
+	outline: none;
+ }
+}
