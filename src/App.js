@@ -12,6 +12,7 @@ import Myapartment from './componets/pages/homepage/hotels/Myapartment';
 import Editecountry from './componets/pages/admin/Editecountry';
 import ViewApartment from './componets/pages/admin/ViewApartment';
 import Editapartment from './componets/pages/admin/Editapartment';
+import Footer from './componets/nav/Footer';
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const userid = cookies.id;
@@ -38,6 +39,7 @@ function App() {
         />
         <Route path="myapartment" element={<Myapartment />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

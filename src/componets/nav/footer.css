@@ -1,0 +1,74 @@
+.footer{
+	width: 100%;
+	background: #FDFDFD;
+}
+
+.footer-container{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.footer-container div h1,.newslaterform h1{
+	font-size: 15px;
+	margin: 6px 0px;
+}
+
+.footer-container div{
+	width: 250px;
+}
+
+.footer-container p{
+	font-size: 12px;
+	font-weight: 400;
+}
+.footerul li{
+	list-style-type: none;
+	
+}
+.footerul li a{
+	color: black;
+	font-size: 12px;
+}
+.footerul li::before {
+	content: "\2022";
+	color: lightblue;
+	font-weight: bold;
+	width: 1em;
+	display: inline-block;
+
+}
+
+.newslaterform div input{
+	background: transparent;
+	border: 1px solid lightgray;
+	padding: 7px;
+	border-radius: 8px;
+}
+.newslaterform div{
+	display: flex;
+	align-items: center;
+}
+.newslaterform div button{
+border-radius: 8px;
+}
+
+.footer-icons{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.footer-icons a{
+	padding: 10px;
+	border-radius: 16px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	text-align: center;
+}
+@media (max-width:900px){
+	.footer-container{
+		flex-wrap: wrap;
+	}
+		.footer-container div{
+			margin-bottom: 20px;
+		}
+}

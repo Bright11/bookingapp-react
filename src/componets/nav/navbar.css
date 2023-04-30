@@ -8,7 +8,7 @@ li{
 .nav{
 	display: flex;
 	justify-content: space-between;
-	padding: 0px 10%;
+	padding: 0px 1%;
 	background: var(--nav-color);
 	align-items: center;
 	color: #fff;
@@ -26,14 +26,13 @@ li{
 
 .uldiv{
 	display: flex;
-	gap: 10px;
+	gap: 5px;
 }
 .uldiv li{
-	padding: 10px 20px;
-	background: #fff;
+	padding: 5px 10px;
 }
 .uldiv li a{
-		color: var(--nav-color)
+		color:  white;
 }
 .uldiv li:first-child{
 	background: var(--nav-color);
